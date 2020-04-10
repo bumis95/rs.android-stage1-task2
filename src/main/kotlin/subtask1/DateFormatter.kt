@@ -10,7 +10,7 @@ class DateFormatter {
 
         val dateToValidate = "$day.$month.$year"
 
-        val sdf = SimpleDateFormat("dd.MM.yyyy")
+        val sdf = SimpleDateFormat("dd.MM.yyyy", Locale("ru"))
         sdf.isLenient = false
         val date: Date
         try {
@@ -19,7 +19,7 @@ class DateFormatter {
             return "Такого дня не существует"
         }
 
-        return "$day ${chooseMonth(month)}, ${SimpleDateFormat("EEEE").format(date)}"
+        return "$day ${chooseMonth(month)}, ${SimpleDateFormat("EEEE", Locale("ru")).format(date)}"
     }
     
     fun chooseMonth(month: String) = when(month.toInt()) {
